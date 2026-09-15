@@ -708,8 +708,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UVCToolkitPanel, Assembly-CSharp
+      - m_Target: {fileID: 402186970061797920}
+        m_TargetAssemblyTypeName: StandaloneSettingsUI, Assembly-CSharp
         m_MethodName: SetExposure
         m_Mode: 0
         m_Arguments:
