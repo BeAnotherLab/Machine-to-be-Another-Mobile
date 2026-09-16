@@ -50,11 +50,9 @@ public class CopyContentOnBuild : IPostprocessBuildWithReport
         RunAdb($"shell rm -rf \"{destination}\"");
         RunAdb($"shell mkdir -p \"{destination}\"");
 
-        // Push each top-level item individually.
-        // Avoids the adb push . behaviour that caused the huge memory spike.
         foreach (string file in Directory.GetFiles(sourceFolder))
         {
-            if (Path.GetFileName(file) == ".DS_Store") continue; //don't copy .DS_Store on Mac
+            if (Path.GetFileName(file) == ".DS_Store") continue; 
             RunAdb($"push \"{file}\" \"{destination}/\"");
         }
 
@@ -64,13 +62,19 @@ public class CopyContentOnBuild : IPostprocessBuildWithReport
             RunAdb($"push \"{directory}\" \"{destination}/{directoryName}\"");
         }
 
+        // Ensure this matches your exact active identifier
         string persistentContent = "/storage/emulated/0/Android/data/com.BeAnotherLab.MachineToBeAnother/files/Content";
 
         RunAdb($"shell rm -rf \"{persistentContent}\"");
         RunAdb($"shell mkdir -p \"{persistentContent}\"");
         RunAdb($"shell cp -r \"{destination}/.\" \"{persistentContent}/\"");
 
-        UnityEngine.Debug.Log("[Content] Content copied to persistent storage.");
+        // CRITICAL FIX FOR QUEST 3 / ANDROID 12+: 
+        // Force the OS to open read/write permissions for everything inside this folder
+        UnityEngine.Debug.Log("[Content] Unlocking file permissions for Quest 3 Scoped Storage...");
+        RunAdb($"shell chmod -R 777 \"{persistentContent}\"");
+
+        UnityEngine.Debug.Log("[Content] Content successfully copied and unlocked.");
     }
     
     private static void CopyDirectory(string sourceDir, string targetDir)
