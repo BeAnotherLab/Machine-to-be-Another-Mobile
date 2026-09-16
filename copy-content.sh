@@ -23,4 +23,8 @@ $ADB shell rm -rf "$PERSISTENT"
 $ADB shell mkdir -p "$PERSISTENT"
 $ADB shell cp -r "$TMP/." "$PERSISTENT/"
 
+# Unlock file permissions
+echo "Setting permissions on persistent content..."
+$ADB shell chmod -R 777 "$PERSISTENT"
+
 echo "Content copied successfully to Quest."
