@@ -64,7 +64,7 @@ public class CopyContentOnBuild : IPostprocessBuildWithReport
             RunAdb($"push \"{directory}\" \"{destination}/{directoryName}\"");
         }
 
-        string persistentContent = "/storage/emulated/0/Android/data/com.UnityTechnologies.com.unity.template.urpblank/files/Content";
+        string persistentContent = "/storage/emulated/0/Android/data/com.BeAnotherLab.MachineToBeAnother/files/Content";
 
         RunAdb($"shell rm -rf \"{persistentContent}\"");
         RunAdb($"shell mkdir -p \"{persistentContent}\"");

@@ -8,6 +8,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ScriptableObjectArchitecture;
 using UnityEngine.Networking;
+using Debug = DebugFile;
+
 
 public class DataLoader : MonoBehaviour
 {
@@ -25,7 +27,7 @@ public class DataLoader : MonoBehaviour
     public delegate void OnPlayInstruction(AudioClip clip);
     public static OnPlayInstruction PlayInstruction;
     
-    [System.Serializable]
+    [Serializable]
     private class SequenceStepList
     {
         public List<SequenceStep> steps;
@@ -121,7 +123,7 @@ public class DataLoader : MonoBehaviour
             if (!_availableLanguages.Contains(lang)) _availableLanguages.Add(lang);
         }
 
-        Debug.Log($"[DataLoader] Discovered languages: {string.Join(", ", _availableLanguages)}");
+        Debug.Log($"[DataLoader] Discovered languages: {string.Join(", ", _availableLanguages)}"); //TODO why doesnt this show 
     }
     
     private void LoadSelectedLanguages()

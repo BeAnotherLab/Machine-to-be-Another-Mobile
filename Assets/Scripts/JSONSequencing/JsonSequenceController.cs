@@ -1,14 +1,6 @@
-using System;
-using System.Collections;
-using System.IO;
 using DG.Tweening;
-using Newtonsoft.Json;
 using ScriptableObjectArchitecture;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
-using UnityEngine.Networking;
-using UnityEngine.Serialization;
-using UnityEngineInternal;
 
 /*
  The JsonSequenceController replaces Unity's Timeline system with a custom timeline runner that:
