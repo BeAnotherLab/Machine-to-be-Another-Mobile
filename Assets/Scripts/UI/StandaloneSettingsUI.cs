@@ -10,8 +10,7 @@ public class StandaloneSettingsUI : MonoBehaviour
 {
     public delegate void OnSetHost(bool on);
     public static OnSetHost SetHost = delegate {};
-
-
+    
     [SerializeField] private UVCManager _manager;
     
     [SerializeField] private Button _showConsoleButton;
@@ -19,6 +18,7 @@ public class StandaloneSettingsUI : MonoBehaviour
     [SerializeField] private TMP_Dropdown _resolutionDropdown;
     [SerializeField] private TMP_Text _exposureText;
     [SerializeField] private Toggle _hostToggle;
+    [SerializeField] private Slider _exposureSlider;
     [SerializeField] private TMP_Text _localIPAddressText;
 
     private List<UVCManager.CameraInfo> _cameras = new();
@@ -64,7 +64,8 @@ public class StandaloneSettingsUI : MonoBehaviour
 
     public void SetExposure(float exposure)
     {
-        _currentCamera.SetValue(EXPOSURE, (int) exposure);
+        _currentCamera.SetValue(EXPOSURE, (int) exposure); //gray out if no camera detected
+        PlayerPrefs.SetInt("exposure", (int) exposure);
         Debug.Log("SetExposure to " + exposure);
     }
     
@@ -83,6 +84,10 @@ public class StandaloneSettingsUI : MonoBehaviour
             _cameraDropdown.SetValueWithoutNotify(0);
             SelectCamera(0);
         }
+        
+        var exposure = PlayerPrefs.GetInt("exposure", 0);
+        if (exposure != 0) _exposureSlider.value = exposure;
+
     }
 
     private void OnCameraChanged(int newValue)

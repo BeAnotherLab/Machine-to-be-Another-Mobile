@@ -117,6 +117,7 @@ MonoBehaviour:
   _resolutionDropdown: {fileID: 4008508705454709132}
   _exposureText: {fileID: 3391358367953807449}
   _hostToggle: {fileID: 4174576579145304879}
+  _exposureSlider: {fileID: 3777093850924647726}
   _localIPAddressText: {fileID: 359610797220635341}
 --- !u!1 &563719776684573044
 GameObject:
