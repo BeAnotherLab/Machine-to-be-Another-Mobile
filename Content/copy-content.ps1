@@ -13,9 +13,14 @@ Write-Host "Preparing temporary directory..."
 
 # Copy files
 Write-Host "Copying files..."
-
 Get-ChildItem -Path $CONTENT -File |
-    Where-Object { $_.Name -ne ".DS_Store" } |
+    Where-Object {
+        $_.Name -notin @(
+            ".DS_Store",
+            "copy-content.sh",
+            "push-content.ps1"
+        )
+    } |
     ForEach-Object {
         & $ADB push $_.FullName "$TMP/"
     }
