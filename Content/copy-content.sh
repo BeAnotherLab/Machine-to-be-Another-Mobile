@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONTENT="./Content"
+CONTENT="."
 TMP="/data/local/tmp/Content"
 PERSISTENT="/storage/emulated/0/Android/data/com.BeAnotherLab.MachineToBeAnother/files/Content"
 ADB="/opt/homebrew/bin/adb"
