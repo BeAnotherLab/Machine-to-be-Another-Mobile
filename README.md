@@ -1,68 +1,31 @@
 # The Machine to Be Another (Mobile)
 
-This repository contains the mobile version of The Machine to Be Another, adapted for standalone VR headsets. It is a minimal, self-contained port of the original desktop experience: two headsets connected over a local network, each sharing the other’s view through synchronized camera input and guided interaction.
+This repository contains the mobile version of The Machine to Be Another, adapted for standalone VR headsets. It is a minimal, self-contained port of the original desktop experience: two headsets connected over a local network, each sharing the other’s view through swapped camera input and guided interaction.
 
 This is the first prototype build of The Machine to Be Another (Manual Swap) for standalone headsets.
 
 ## Overview
 
-The Machine to Be Another is a remote embodiment experience in which two participants inhabit each other's perspective through live camera feed, synchronized interaction, and guided steps. This mobile port is designed for standalone VR headsets and supports the same core interaction model in a more compact, self-contained form.
+The Machine to Be Another (https://beanotherlab.org/home/work/tmtba/body-swap/) is an embodiment experience in which two participants inhabit each other's perspective through live camera feed, synchronized interaction, and human-guided steps. It has been shown as an interactive installation worldwide. This mobile port is designed for standalone VR headsets and supports the same core interaction model in a more compact, self-contained form.
 
-- Tested on Meta Quest 3 and Meta Quest 2 running Horizon OS v2.7
-- Built with Unity 6000.0f1
-- Intended for QA, UX, and exhibition validation
-- Not a final production deployment
-- Designed for local network communication between two headsets
-- Camera pipeline based on UVC4UnityAndroid by saki
-- Expected camera latency remains under 100 ms
+## System Diagarm
 
 ![Setup diagram](Docs/setup%20diagram.png)
 
-## Project status
-
-This project is a prototype and is intentionally limited in scope. It is intended to validate the interaction model, camera pipeline, and local network setup on standalone VR hardware.
-
-- Works on standalone Meta Quest devices
-- No longer works on desktop devices without modification
-- Built for experimentation and exhibition use rather than final deployment
-
-## Repository structure
-
-```text
-.
-├── Assets/                  # Unity project assets and scenes
-├── Content/                 # Experience content packaged for the headset
-│   ├── Audio/
-│   ├── Config/
-│   ├── Font/
-│   ├── Image/
-│   ├── Template/
-│   ├── Translation/
-│   ├── Video/
-│   └── ...
-├── Docs/                    # Setup and technical documentation
-├── Files/                   # Mounts, controller layouts, manuals, and PDFs
-├── Packages/                # Unity package manifest
-├── ProjectSettings/         # Unity project settings
-├── copy-content.sh          # Copies content to the Quest via ADB
-├── README.md
-└── ...
-```
-
 ## Requirements
 
-- Meta Quest 2 or Meta Quest 3
+- Two Meta Quest 2 or Meta Quest 3
 - Horizon OS v2.7+
 - Unity 6000.0f1
 - Android Debug Bridge (ADB)
-- USB camera hardware compatible with Android UVC input
-- TouchOSC Legacy on an Android tablet/controller device
+- Two USBFHD01M usb cameras with corresponding USB adapters and extension cables
+- TouchOSC Legacy on an Android or iOS tablet/phone device
 
 ## Installation and setup
 
 ### 1. Build and install the app
 
-Open the project in Unity and build the app for Android / Meta Quest. After installation, use the included script to push the packaged experience content onto the headset.
+Open the project in Unity and build the app for Android / Meta Quest. If you select "build and run", the content files will be automatically copied with the build. Otherwise, you can use the included script to update the packaged experience content onto the headset.
 
 From the repository root:
 
@@ -74,16 +37,7 @@ The script copies the `Content` directory into the Quest app storage and sets fi
 
 ### 2. Prepare the camera setup
 
-The project uses USB camera input via UVC drivers on Android. The repository includes mounting files and documentation for the hardware setup.
-
-Relevant assets:
-
-- `Files/mounts.zip`
-- `Files/mounts.blend`
-- `Files/mount DK2.stl`
-- `Docs/Meta Horizon OS - USB Camera Compatibility.odt`
-
-For the physical mount, use the 3D printed mounts provided in the repo. The `.blend` and `.zip` files contain the relevant designs for fabrication or adaptation.
+The project uses USB camera input connected directly to the headset. The repository includes mounting files and documentation for the hardware setup. Example 3D printable mount files are available in `Files/mounts`
 
 ## Tablet controller setup
 
@@ -91,9 +45,9 @@ The experience includes TouchOSC layouts for use as a controller or operator int
 
 Install TouchOSC Legacy on the Android device and load one of the controller layouts from the repository:
 
-- `Files/bodyswap controller.touchosc`
-- `Files/bodyswap controller bonus.touchosc`
-- `Files/body swap controller curtain.touchosc`
+- `Files/bodyswap controller.touchosc` regular manual swap controls
+- `Files/bodyswap controller bonus.touchosc` manual swap controls with an extra slot for an audio instruction
+- `Files/body swap controller curtain.touchosc` manual swap controls with controls for an automated curtain
 
 These layouts are intended to support the manual swap interaction flow and operator controls during the experience.
 
@@ -103,30 +57,3 @@ The project’s JSON-driven configuration and sequencing logic is documented in 
 
 - [JSON Sequencer README](Docs/JSON-Sequencer-README.md) — sequence flow, timing, actions, localization, and authoring guidance.
 - [JSON Config and Static Asset Loading README](Docs/JSON-Config-and-Static-Asset-Loading-README.md) — configuration schema and runtime asset-loading behavior.
-
-## Content package
-
-The `Content` directory contains the experience assets delivered to the headset, including:
-
-- `Content/Audio/` for narration and sound cues
-- `Content/Config/` for localization and sequence configuration
-- `Content/Image/` and `Content/Video/` for visual instructions and media
-- `Content/Translation/` for localizable strings
-- `Content/Template/` for reusable structure and content templates
-
-## Documentation and reference material
-
-The repository includes several technical and operational documents:
-
-- `Docs/setup diagram.png` — system overview diagram
-- `Docs/Meta Horizon OS - USB Camera Compatibility.odt` — compatibility notes for Quest/UVC camera use
-- `Docs/Meta Quest 3 UVC Camera : Overlay Keyboard issue.pdf` — known issue documentation
-- `Docs/Technorama/` — concept and system flow materials
-- `Files/The Machine to Be Another Protocols.pdf` — protocol and usage reference
-- `Files/swap manual instructions/` — operational instructions
-
-## Notes
-
-This prototype is best understood as a hardware + interaction validation platform for a local, connected VR embodiment experience. It is intentionally lightweight and designed around direct headset-to-headset communication, local orchestration, and exhibition-style operation.
-
-For questions or implementation details, refer to the files in `Docs/` and `Files/`, or inspect the project configuration under `Content/Config`.
