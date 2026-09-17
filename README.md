@@ -43,7 +43,7 @@ The script copies the `Content` directory into the Quest app storage and sets fi
 
 ### 2. Prepare the camera setup
 
-The project uses USB camera input connected directly to the headset. The repository includes mounting files and documentation for the hardware setup. Example 3D printable mount files are available in `Files/mounts`
+The project uses USB camera input connected directly to the headset. The repository includes mounting files and documentation for the hardware setup. Example 3D printable mount files are available in [`Files/Mounts`](Files/mounts)
 
 ### 3. Config and Debug UI
 Before launching the app, make sure the headsets are connected to your local wifi network, as well as the tablet.
@@ -55,9 +55,9 @@ The experience includes TouchOSC layouts for use as a controller or operator int
 
 Install TouchOSC Legacy on the Android device and load one of the controller layouts from the repository:
 
-- `Files/bodyswap controller.touchosc` regular manual swap controls
-- `Files/bodyswap controller bonus.touchosc` manual swap controls with an extra slot for an audio instruction
-- `Files/body swap controller curtain.touchosc` manual swap controls with controls for an automated curtain
+- [`Files/bodyswap controller.touchosc`](Files/bodyswap%20controller.touchosc) — regular manual swap controls
+- [`Files/bodyswap controller bonus.touchosc`](Files/bodyswap%20controller%20bonus.touchosc) — manual swap controls with an extra slot for an audio instruction
+- [`Files/body swap controller curtain.touchosc`](Files/body%20swap%20controller%20curtain.touchosc) — manual swap controls with controls for an automated curtain
 
 These layouts are intended to support the manual swap interaction flow and operator controls during the experience.
 
