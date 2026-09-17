@@ -21,9 +21,11 @@ This repository contains the mobile version of The Machine to Be Another, adapte
 
 ## Installation and setup
 
-### 1. Build and install the app
+### 1. Installing the app
 
-Open the project in Unity and build the app for Android / Meta Quest. If you select "build and run", the content files will be automatically copied with the build. Otherwise, you can use the included script to update the packaged experience content onto the headset.
+Open the project in Unity and build the app for Android / Meta Quest. If you select "build and run", the content files will be automatically copied with the build. 
+
+Otherwise, you can use the .apk and the `copy-content` script included in the release to update the packaged experience content onto the headset.
 
 From the Content folder root:
 
@@ -43,9 +45,13 @@ The script copies the `Content` directory into the Quest app storage and sets fi
 
 The project uses USB camera input connected directly to the headset. The repository includes mounting files and documentation for the hardware setup. Example 3D printable mount files are available in `Files/mounts`
 
+### 3. Config and Debug UI
+Before launching the app, make sure the headsets are connected to your local wifi network, as well as the tablet.
+On the first usage, press the right index trigger and the A button to bring the Debug UI up. Before you can connect to another headset, make sure the "host" checkbox is enabled on one of the headsets only. You can enable the `Pano` object at the top of the hierarchy to check the video feed is showing properly. Then set the exposure level with the slider to adjust the image to the light conditions.
+
 ## Tablet controller setup
 
-The experience includes TouchOSC layouts for use as a controller or operator interface.
+The experience includes TouchOSC layouts for use as a controller or operator interface. in the TouchOSC interface you must set the IP address of the Host headset to be able to send control messages to both devices.
 
 Install TouchOSC Legacy on the Android device and load one of the controller layouts from the repository:
 
