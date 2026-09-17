@@ -1,12 +1,12 @@
 # The Machine to Be Another (Mobile)
 
-This repository contains the mobile version of The Machine to Be Another, adapted for standalone VR headsets. It is a minimal, self-contained port of the original desktop experience: two headsets connected over a local network, with live camera input and synchronized interaction.
+This repository contains the mobile version of The Machine to Be Another, adapted for standalone VR headsets. It is a minimal, self-contained port of the original desktop experience: two headsets connected over a local network, each sharing the other’s view through synchronized camera input and guided interaction.
 
 This is the first prototype build of The Machine to Be Another (Manual Swap) for standalone headsets.
 
 ## Overview
 
-The Machine to Be Another is a remote embodiment experience in which two participants inhabit each other's perspective through live camera feed, synchronized interaction, and guided steps. This mobile version focuses on validating the experience on standalone Meta Quest hardware.
+The Machine to Be Another is a remote embodiment experience in which two participants inhabit each other's perspective through live camera feed, synchronized interaction, and guided steps. This mobile port is designed for standalone VR headsets and supports the same core interaction model in a more compact, self-contained form.
 
 - Tested on Meta Quest 3 and Meta Quest 2 running Horizon OS v2.7
 - Built with Unity 6000.0f1
@@ -97,23 +97,12 @@ Install TouchOSC Legacy on the Android device and load one of the controller lay
 
 These layouts are intended to support the manual swap interaction flow and operator controls during the experience.
 
-## JSON configuration system
+## JSON documentation
 
-The experience content is configured with JSON files under `Content/Config`.
+The project’s JSON-driven configuration and sequencing logic is documented in the following references:
 
-### Example configuration
-
-```json
-{"selected_languages": ["EN", "FR"]}
-```
-
-This file sets active language entries for the experience.
-
-### Sequence configuration
-
-The sequence is defined in `Content/Config/sequence.json` and drives the guided flow of events, including scripting of text, audio, video, and actions.
-
-For the complete JSON sequencer specification, including the schema, timing rules, supported actions, localization, and authoring checklist, see [`Docs/JSON-Sequencer-README.md`](Docs/JSON-Sequencer-README.md).
+- [JSON Sequencer README](Docs/JSON-Sequencer-README.md) — sequence flow, timing, actions, localization, and authoring guidance.
+- [JSON Config and Static Asset Loading README](Docs/JSON-Config-and-Static-Asset-Loading-README.md) — configuration schema and runtime asset-loading behavior.
 
 ## Content package
 
@@ -132,14 +121,12 @@ The repository includes several technical and operational documents:
 - `Docs/setup diagram.png` — system overview diagram
 - `Docs/Meta Horizon OS - USB Camera Compatibility.odt` — compatibility notes for Quest/UVC camera use
 - `Docs/Meta Quest 3 UVC Camera : Overlay Keyboard issue.pdf` — known issue documentation
-- `Docs/JSON-Based Timeline Specification - v2.pdf` — detailed JSON timeline format
-- [`Docs/JSON-Sequencer-README.md`](Docs/JSON-Sequencer-README.md) — repository-maintained JSON sequencer specification
 - `Docs/Technorama/` — concept and system flow materials
 - `Files/The Machine to Be Another Protocols.pdf` — protocol and usage reference
 - `Files/swap manual instructions/` — operational instructions
 
 ## Notes
 
-This prototype is best understood as a hardware + interaction validation platform for a local, connected VR embodiment experience. It is intentionally lightweight and designed around direct headset-to-headset communication, live camera input, and configurable media-driven interaction sequences.
+This prototype is best understood as a hardware + interaction validation platform for a local, connected VR embodiment experience. It is intentionally lightweight and designed around direct headset-to-headset communication, local orchestration, and exhibition-style operation.
 
 For questions or implementation details, refer to the files in `Docs/` and `Files/`, or inspect the project configuration under `Content/Config`.
