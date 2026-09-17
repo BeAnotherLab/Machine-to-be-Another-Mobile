@@ -1,12 +1,12 @@
 # The Machine to Be Another (Mobile)
 
-This repository contains the mobile version of The Machine to Be Another, adapted for standalone VR headsets. It is a minimal, self-contained port of the original desktop experience: two headsets connect directly over the local network, exchange camera and interaction data, and run the experience without a PCVR setup.
+This repository contains the mobile version of The Machine to Be Another, adapted for standalone VR headsets. It is a minimal, self-contained port of the original desktop experience: two headsets connected over a local network, with live camera input and synchronized interaction.
 
 This is the first prototype build of The Machine to Be Another (Manual Swap) for standalone headsets.
 
 ## Overview
 
-The Machine to Be Another is a remote embodiment experience in which two participants inhabit each other's perspective through live camera feed, synchronized interaction, and guided steps. This mobile build is designed for Meta Quest devices and keeps the experience self-contained on each headset.
+The Machine to Be Another is a remote embodiment experience in which two participants inhabit each other's perspective through live camera feed, synchronized interaction, and guided steps. This mobile version focuses on validating the experience on standalone Meta Quest hardware.
 
 - Tested on Meta Quest 3 and Meta Quest 2 running Horizon OS v2.7
 - Built with Unity 6000.0f1
@@ -70,26 +70,7 @@ From the repository root:
 ./copy-content.sh
 ```
 
-The script copies the `Content` directory into the Quest app storage and sets file permissions.
-
-```bash
-#!/bin/bash
-CONTENT="./Content"
-TMP="/data/local/tmp/Content"
-PERSISTENT="/storage/emulated/0/Android/data/com.BeAnotherLab.MachineToBeAnother/files/Content"
-ADB="/opt/homebrew/bin/adb"
-
-# Copy files and folders to device
-find "$CONTENT" -maxdepth 1 -type f ! -name ".DS_Store" -exec "$ADB" push "{}" "$TMP/" \;
-find "$CONTENT" -mindepth 1 -maxdepth 1 -type d -exec "$ADB" push "{}" "$TMP/" \;
-
-$ADB shell rm -rf "$PERSISTENT"
-$ADB shell mkdir -p "$PERSISTENT"
-$ADB shell cp -r "$TMP/." "$PERSISTENT/"
-$ADB shell chmod -R 777 "$PERSISTENT"
-```
-
-If your `adb` binary is not installed at `/opt/homebrew/bin/adb`, update the script path before running it.
+The script copies the `Content` directory into the Quest app storage and sets file permissions. If your `adb` binary is not installed at `/opt/homebrew/bin/adb`, update the script path before running it.
 
 ### 2. Prepare the camera setup
 
@@ -132,32 +113,7 @@ This file sets active language entries for the experience.
 
 The sequence is defined in `Content/Config/sequence.json` and drives the guided flow of events, including scripting of text, audio, video, and actions.
 
-Example structure:
-
-```json
-{
-  "steps": [
-    {
-      "time": 0.0,
-      "textKey": "welcome",
-      "audio": "welcome.ogg",
-      "actions": ["WallOn"]
-    }
-  ]
-}
-```
-
-The timeline format supports:
-
-- `time`: when the step occurs
-- `textKey`: a localized text entry
-- `audio`: an audio file to play
-- `visual`: a visual asset to display
-- `actions`: scripted actions such as panel visibility or environment changes
-
-For the full specification, see:
-
-- `Docs/JSON-Based Timeline Specification - v2.pdf`
+For the complete JSON sequencer specification, including the schema, timing rules, supported actions, localization, and authoring checklist, see [`Docs/JSON-Sequencer-README.md`](Docs/JSON-Sequencer-README.md).
 
 ## Content package
 
@@ -177,6 +133,7 @@ The repository includes several technical and operational documents:
 - `Docs/Meta Horizon OS - USB Camera Compatibility.odt` — compatibility notes for Quest/UVC camera use
 - `Docs/Meta Quest 3 UVC Camera : Overlay Keyboard issue.pdf` — known issue documentation
 - `Docs/JSON-Based Timeline Specification - v2.pdf` — detailed JSON timeline format
+- [`Docs/JSON-Sequencer-README.md`](Docs/JSON-Sequencer-README.md) — repository-maintained JSON sequencer specification
 - `Docs/Technorama/` — concept and system flow materials
 - `Files/The Machine to Be Another Protocols.pdf` — protocol and usage reference
 - `Files/swap manual instructions/` — operational instructions
