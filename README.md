@@ -1,12 +1,10 @@
 # The Machine to Be Another (Mobile)
 
-This repository contains the mobile version of The Machine to Be Another, adapted for standalone VR headsets. It is a minimal, self-contained port of the original desktop experience: two headsets connected over a local network, each sharing the other’s view through swapped camera input and guided interaction.
-
-This is the first prototype build of The Machine to Be Another (Manual Swap) for standalone headsets.
+This repository contains the mobile version of The Machine to Be Another, adapted for standalone VR headsets. It is a minimal, self-contained port of the original desktop experience: two headsets connected over a local network, each sharing the other’s view through swapped camera input and guided interaction. The UVC pipeline is based on [UVC4UnityAndroid](https://github.com/saki4510t/UVC4UnityAndroid) by saki4510
 
 ## Overview
 
-The Machine to Be Another (https://beanotherlab.org/home/work/tmtba/body-swap/) is an embodiment experience in which two participants inhabit each other's perspective through live camera feed, synchronized interaction, and human-guided steps. It has been shown as an interactive installation worldwide. This mobile port is designed for standalone VR headsets and supports the same core interaction model in a more compact, self-contained form.
+[The Machine to Be Another](https://beanotherlab.org/home/work/tmtba/body-swap/) is an embodiment experience in which two participants inhabit each other's perspective through live camera feed, synchronized interaction, and human-guided steps. It has been shown as an interactive installation worldwide. This mobile port is designed for standalone VR headsets and supports the same core interaction model in a more compact, self-contained form.
 
 ## System Diagarm
 
