@@ -61,9 +61,10 @@ Install TouchOSC Legacy on the Android device and load one of the controller lay
 
 These layouts are intended to support the manual swap interaction flow and operator controls during the experience.
 
-## JSON documentation
+## JSON-driven Experience customization  
 
-The project’s JSON-driven configuration and sequencing logic is documented in the following references:
+You can customize several aspects of the experience (visuals, localization texts and audio) using the project’s JSON-driven configuration and sequencing logic.
+It is documented in the following references:
 
 - [JSON Sequencer README](Docs/JSON-Sequencer-README.md) — sequence flow, timing, actions, localization, and authoring guidance.
 - [JSON Config and Static Asset Loading README](Docs/JSON-Config-and-Static-Asset-Loading-README.md) — configuration schema and runtime asset-loading behavior.
