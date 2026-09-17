@@ -27,13 +27,19 @@ The Machine to Be Another (https://beanotherlab.org/home/work/tmtba/body-swap/) 
 
 Open the project in Unity and build the app for Android / Meta Quest. If you select "build and run", the content files will be automatically copied with the build. Otherwise, you can use the included script to update the packaged experience content onto the headset.
 
-From the repository root:
+From the Content folder root:
 
 ```bash
 ./copy-content.sh
 ```
+on Linux/Mac OS or
 
-The script copies the `Content` directory into the Quest app storage and sets file permissions. If your `adb` binary is not installed at `/opt/homebrew/bin/adb`, update the script path before running it.
+```bash
+./copy-content.ps1
+```
+on Windows
+
+The script copies the `Content` directory into the Quest app storage and sets file permissions. If your `adb` binary is not found update the script path before running it.
 
 ### 2. Prepare the camera setup
 
