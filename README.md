@@ -12,12 +12,12 @@ This repository contains the mobile version of The Machine to Be Another, adapte
 
 ## Requirements
 
-- Two Meta Quest 2 or Meta Quest 3 with developer mode enabled
-- Horizon OS v2.7+
+- Two Meta Quest 2 or Meta Quest 3 with developer mode enabled 
+- a Wi-fi router
 - Unity 6000.0f1
-- Android Debug Bridge (ADB)
-- Two USBFHD01M usb cameras with corresponding USB adapters and extension cables
-- TouchOSC Legacy on an Android or iOS tablet/phone device
+- a computer with Android Debug Bridge (ADB) installed
+- Two USBFHD01M USB cameras with corresponding USB adapters and extension cables
+- TouchOSC Legacy app installed on an Android or iOS tablet/phone device
 
 ## Installation and setup
 
