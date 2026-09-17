@@ -6,13 +6,13 @@ This repository contains the mobile version of The Machine to Be Another, adapte
 
 [The Machine to Be Another](https://beanotherlab.org/home/work/tmtba/body-swap/) is an embodiment experience in which two participants inhabit each other's perspective through live camera feed, synchronized interaction, and human-guided steps. It has been shown as an interactive installation worldwide. This mobile port is designed for standalone VR headsets and supports the same core interaction model in a more compact, self-contained form.
 
-## System Diagarm
+## System Diagram
 
 ![Setup diagram](Docs/setup%20diagram.png)
 
 ## Requirements
 
-- Two Meta Quest 2 or Meta Quest 3
+- Two Meta Quest 2 or Meta Quest 3 with developer mode enabled
 - Horizon OS v2.7+
 - Unity 6000.0f1
 - Android Debug Bridge (ADB)
@@ -43,7 +43,7 @@ The script copies the `Content` directory into the Quest app storage and sets fi
 
 ### 2. Prepare the camera setup
 
-The project uses USB camera input connected directly to the headset. The repository includes mounting files and documentation for the hardware setup. Example 3D printable mount files are available in [`Files/Mounts`](Files/mounts)
+The project uses USB camera input connected directly to the headset. The repository includes mounting files and documentation for the hardware setup. Example 3D printable mount files are available in [`Files/Mounts`](Files/mounts). You will need to authorize external cameras to connect to your headset for the app to be able to show the camera feed.
 
 ### 3. Config and Debug UI
 Before launching the app, make sure the headsets are connected to your local wifi network, as well as the tablet.
@@ -51,7 +51,7 @@ On the first usage, press the right index trigger and the A button to bring the 
 
 ## Tablet controller setup
 
-The experience includes TouchOSC layouts for use as a controller or operator interface. in the TouchOSC interface you must set the IP address of the Host headset to be able to send control messages to both devices.
+The experience includes TouchOSC layouts for use as a controller or operator interface. in the TouchOSC interface you must set the IP address of the Host headset to be able to send control messages to both devices. (it's displayed on the config UI.
 
 Install TouchOSC Legacy on the Android device and load one of the controller layouts from the repository:
 
